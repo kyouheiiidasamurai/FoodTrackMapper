@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>道の駅・物産館イメージ 無料ホームページテンプレート tp_bussan2</title>
+<title>FoodTrackMapper</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
+<meta name="description" content="フードトラックの検索サイト">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,7 +14,7 @@
 <body class="home">
 
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/logo_home.png" alt="道の駅"></a></h1>
+<h1 id="logo"><a href="index.jsp"><img src="images/logo_home.png" alt="道の駅"></a></h1>
 <ul id="lang-nav">
 <li><a href="">English</a></li>
 <li><a href="">中文</a></li>
@@ -27,10 +29,10 @@
 
 <nav id="header-menu">
 <ul>
-<li><a href="info.html">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-<li><a href="shopping.html">お買い物<i class="fas fa-shopping-basket"></i></a></li>
-<li><a href="event.html">イベント<i class="far fa-calendar-alt"></i></a></li>
-<li><a href="access.html">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
+<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
+<li><a href="shopping.jsp">お買い物<i class="fas fa-shopping-basket"></i></a></li>
+<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
+<li><a href="access.jsp">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
 </ul>
 </nav>
 
@@ -48,7 +50,7 @@
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
-<p class="btn"><a href="event.html">詳しくみる</a></p>
+<p class="btn"><a href="event.jsp">詳しくみる</a></p>
 <span class="icon">12/15<br>〜<br>12/18</span>
 </div>
 
@@ -58,7 +60,7 @@
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
-<p class="btn"><a href="event.html">詳しくみる</a></p>
+<p class="btn"><a href="event.jsp">詳しくみる</a></p>
 <span class="icon">12/3</span>
 </div>
 
@@ -68,7 +70,7 @@
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
-<p class="btn"><a href="event.html">詳しくみる</a></p>
+<p class="btn"><a href="event.jsp">詳しくみる</a></p>
 <span class="icon">3日〜<br>5日</span>
 </div>
 
@@ -78,7 +80,7 @@
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
-<p class="btn"><a href="event.html">詳しくみる</a></p>
+<p class="btn"><a href="event.jsp">詳しくみる</a></p>
 </div>
 
 </div>
@@ -139,7 +141,7 @@
 </div>
 <!--/.list-container-->
 
-<p class="btn"><a href="shopping.html">もっとみる<i class="fas fa-angle-double-right"></i></a></p>
+<p class="btn"><a href="shopping.jsp">もっとみる<i class="fas fa-angle-double-right"></i></a></p>
 
 </section>
 
@@ -148,14 +150,14 @@
 <h2>テンプレートのご利用前に必ずお読み下さい<span>Read Me</span></h2>
 
 <h3>利用規約のご案内</h3>
-<p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『道の駅・物産館イメージ 無料ホームページテンプレート tp_bussan2』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.html">利用規約</a>をご一読の上でご利用下さい。</p>
+<p>このテンプレートは、<a href="https://template-party.com/">Template Party</a>にて無料配布している『FoodTrackMapper』です。必ずダウンロード先のサイトの<a href="https://template-party.com/read.jsp">利用規約</a>をご一読の上でご利用下さい。</p>
 <p><strong class="color-check">HP最下部の著作表示『Web Design:Template-Party』は無断で削除しないで下さい。</strong><br>
 わざと見えなく加工する事も禁止です。</p>
 <p><strong class="color-check">下部の著作を外したい場合は</strong><br>
-<a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.html">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
+<a href="https://template-party.com/">Template-Party</a>の<a href="https://template-party.com/member.jsp">ライセンス契約</a>を行う事でHP下部の著作を外す事ができます。</p>
 
 <h3>当テンプレートの詳しい使い方は</h3>
-<p><a href="company.html#about">こちらをご覧下さい。</a></p>
+<p><a href="company.jsp#about">こちらをご覧下さい。</a></p>
 
 <h3>トップページのスライドショー画像について</h3>
 <p>トップページのスライドショー写真は、配布元サイト（写真ACさん）の規約により梱包できませんが、配布元サイト(<a href="https://www.photo-ac.com/#a_aid=60e590da89d1f&amp;a_bid=35660fdf" target="_blank">写真AC</a><img style="border:0" src="https://acworks.postaffiliatepro.com/scripts/g5iueh?a_aid=60e590da89d1f&amp;a_bid=35660fdf" width="1" height="1" alt="" />)さんから無料ダウンロードができます。<br>
@@ -173,12 +175,12 @@
 <div id="footermenu">
 <ul>
 <li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">運営会社</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="company.jsp">運営会社</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 <ul>
 <li class="title">メニュー見出し</li>
@@ -205,7 +207,7 @@
 <!--/#footermenu-->
 
 <footer>
-<small>Copyright&copy; <a href="index.html">道の駅</a> All Rights Reserved.</small>
+<small>Copyright&copy; <a href="index.jsp">道の駅</a> All Rights Reserved.</small>
 <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
 </footer>
 
@@ -214,15 +216,15 @@
 
 <nav>
 <ul>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 </nav>
 
-<p class="btn"><a href="contact.html">お問い合わせ</a></p>
+<p class="btn"><a href="contact.jsp">お問い合わせ</a></p>
 
 <div class="sh">
 <p>※900px未満のメニュー開閉時にのみ表示させたい情報があればここ（shボックスの中）に入れて下さい。<br>

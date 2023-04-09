@@ -1,27 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>道の駅・物産館イメージ 無料ホームページテンプレート tp_bussan2</title>
+<title>FoodTrackMapper</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
+<meta name="description" content="FoodTrackMapper">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="道の駅"></a></h1>
+<h1 id="logo"><a href="index.jsp"><img src="images/logo.png" alt="道の駅"></a></h1>
 </header>
 
 <div id="container">
 
 <nav id="header-menu">
 <ul>
-<li><a href="info.html">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-<li><a href="shopping.html">お買い物<i class="fas fa-shopping-basket"></i></a></li>
-<li><a href="event.html">イベント<i class="far fa-calendar-alt"></i></a></li>
-<li><a href="access.html">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
+<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
+<li><a href="shopping.jsp">お買い物<i class="fas fa-shopping-basket"></i></a></li>
+<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
+<li><a href="access.jsp">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
 </ul>
 </nav>
 
@@ -29,42 +31,109 @@
 
 <section>
 
-<h2 class="flag">施設のご案内<span>Information</span></h2>
-<p class="c">横並びブロックを使う場合、ブロック全体を囲んでいる「list-container」タグを入れ忘れないで下さい。<br>
+<h2 class="flag">お買い物<span>Shopping</span></h2>
+
+<p class="c">ここで使う画像は「正方形」で準備するときれいに揃って見えます。<br>
+正方形でない場合は「同じ縦横比率」の画像を並べておくでもOKです。</p>
+<p class="c">ブロック全体を囲んでいる「list-container」タグを入れ忘れないで下さい。<br>
 これがないとレイアウトが崩れます。</p>
 <p class="c">出現してくるアニメーションは他にも色々ご用意しております。<br>
-テンプレート内の<a href="sample_inview.html">sample_inview.htmlをお読み下さい。</a></p>
+テンプレート内の<a href="sample_inview.jsp">sample_inview.jspをお読み下さい。</a></p>
+
 
 <div class="list-container">
 
-<div class="list blur">
-<figure><a href="article.html"><img src="images/sample2.jpg" alt=""></a></figure>
+<div class="list-square blur">
+<figure><img src="images/sample6.jpg" alt=""></figure>
 <div class="text">
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
-<p class="btn"><a href="article.html">詳しくみる</a></p>
+<span class="icon">おすすめ</span>
 </div>
 
-<div class="list blur">
-<figure><a href="article.html"><img src="images/sample3.jpg" alt=""></a></figure>
-<div class="text">
-<h4>Sample Title</h4>
-<p>ここに説明を入れます。サンプルテキスト。</p>
-</div>
-<p class="btn"><a href="article.html">詳しくみる</a></p>
-</div>
-
-<div class="list blur">
-<figure><a href="article.html"><img src="images/sample4.jpg" alt=""></a></figure>
+<div class="list-square blur">
+<figure><img src="images/sample7.jpg" alt=""></figure>
 <div class="text">
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。</p>
 </div>
 </div>
 
-<div class="list blur">
-<figure><a href="article.html"><img src="images/sample5.jpg" alt=""></a></figure>
+<div class="list-square blur">
+<figure><img src="images/sample8.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample7.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample8.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample6.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample6.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample7.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample8.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample7.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample8.jpg" alt=""></figure>
+<div class="text">
+<h4>Sample Title</h4>
+<p>ここに説明を入れます。サンプルテキスト。</p>
+</div>
+</div>
+
+<div class="list-square blur">
+<figure><img src="images/sample6.jpg" alt=""></figure>
 <div class="text">
 <h4>Sample Title</h4>
 <p>ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。</p>
@@ -76,57 +145,17 @@
 
 </section>
 
-<section>
-
-<h2>施設のご案内<span>Information</span></h2>
-
-<div class="list2 blur">
-<figure><a href="article.html"><img src="images/sample2.jpg" alt=""></a></figure>
-<div class="text">
-<h4>Sample Title</h4>
-<p>ここに説明を入れます。サンプルテキスト。</p>
-<p class="btn"><a href="article.html">詳しくみる</a></p>
-</div>
-</div>
-
-<div class="list2 blur">
-<figure><a href="article.html"><img src="images/sample3.jpg" alt=""></a></figure>
-<div class="text">
-<h4>Sample Title</h4>
-<p>ここに説明を入れます。サンプルテキスト。</p>
-<p class="btn"><a href="article.html">詳しくみる</a></p>
-</div>
-</div>
-
-<div class="list2 blur">
-<figure><a href="article.html"><img src="images/sample4.jpg" alt=""></a></figure>
-<div class="text">
-<h4>Sample Title</h4>
-<p>ここに説明を入れます。サンプルテキスト。</p>
-</div>
-</div>
-
-<div class="list2 blur">
-<figure><a href="article.html"><img src="images/sample5.jpg" alt=""></a></figure>
-<div class="text">
-<h4>Sample Title</h4>
-<p>ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。</p>
-</div>
-</div>
-
-</section>
-
 </main>
 
 <div id="footermenu">
 <ul>
 <li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">運営会社</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="company.jsp">運営会社</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 <ul>
 <li class="title">メニュー見出し</li>
@@ -153,7 +182,7 @@
 <!--/#footermenu-->
 
 <footer>
-<small>Copyright&copy; <a href="index.html">道の駅</a> All Rights Reserved.</small>
+<small>Copyright&copy; <a href="index.jsp">道の駅</a> All Rights Reserved.</small>
 <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
 </footer>
 
@@ -162,15 +191,15 @@
 
 <nav>
 <ul>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 </nav>
 
-<p class="btn"><a href="contact.html">お問い合わせ</a></p>
+<p class="btn"><a href="contact.jsp">お問い合わせ</a></p>
 
 <div class="sh">
 <p>※900px未満のメニュー開閉時にのみ表示させたい情報があればここ（shボックスの中）に入れて下さい。<br>

@@ -1,27 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>道の駅・物産館イメージ 無料ホームページテンプレート tp_bussan2</title>
+<title>FoodTrackMapper</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ここにサイト説明を入れます">
+<meta name="description" content="FoodTrackMapper">
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
-<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="道の駅"></a></h1>
+<h1 id="logo"><a href="index.jsp"><img src="images/logo.png" alt="道の駅"></a></h1>
 </header>
 
 <div id="container">
 
 <nav id="header-menu">
 <ul>
-<li><a href="info.html">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-<li><a href="shopping.html">お買い物<i class="fas fa-shopping-basket"></i></a></li>
-<li><a href="event.html">イベント<i class="far fa-calendar-alt"></i></a></li>
-<li><a href="access.html">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
+<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
+<li><a href="shopping.jsp">お買い物<i class="fas fa-shopping-basket"></i></a></li>
+<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
+<li><a href="access.jsp">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
 </ul>
 </nav>
 
@@ -89,7 +91,7 @@
 <p><strong class="color-theme">metaタグを変更しましょう。</strong><br>
 htmlソースが見える状態にしてmetaタグを変更しましょう。</p>
 <p>ソースの上の方に、<br>
-<span class="look">content=&quot;ここにサイト説明を入れます&quot;</span><br>
+<span class="look">content=&quot;FoodTrackMapper&quot;</span><br>
 という部分がありますので、テキストをサイトの説明文に入れ替えます。検索結果の文面に使われる場合もありますので、見た人が来訪したくなるような説明文を簡潔に書きましょう。</p>
 <p><strong class="color-theme">h1ロゴのaltタグも変更しましょう。</strong><br>
 html側に、<br>
@@ -137,7 +139,7 @@ html側に、<br>
 <a href="https://fontawesome.com/" target="_blank">Font Awesome 公式サイト</a><br>
 <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2">Font Awesome アイコン一覧</a></p>
 <p>iタグを使ってhtmlに直接アイコンを読み込む場合と、cssの擬似要素を使って読み込む場合があります。<br>
-それぞれ他のアイコンに置き換えたい場合は、当サイトの<a href="https://template-party.com/tips/tips20211126_font_awesome.html">マニュアル</a>をお読み下さい。</p>
+それぞれ他のアイコンに置き換えたい場合は、当サイトの<a href="https://template-party.com/tips/tips20211126_font_awesome.jsp">マニュアル</a>をお読み下さい。</p>
 <p><strong class="color-theme">Font Awesomeを使う為に必要なタグ、ファイル類。</strong><br>
 1. cssフォルダのstyle.css冒頭で読み込んでいる「Font Awesomeの読み込み」のブロック。</p>
 <p><strong class="color-theme">何年も経過した場合、動作に問題が出てくる可能性があります。</strong><br>
@@ -160,10 +162,10 @@ html側に、<br>
 <p>画面左上のハンバーガーメニュー（３本バーアイコン）をクリックすると開閉ブロックが開きます。<br>
 html下部のmenubar内にブロックがありますので必要に応じて編集して下さい。</p>
 <p>menubar内のshブロックは、900px未満の小さな端末から見た場合にだけ表示されるブロックです。<br>
-これは2カラムページ(<a href="index_c2.html">index_c2.html</a>)でも解説していますが、例えば画面幅が900px未満になった際に場所をとるsubメニューを消してこちらを表示させる、などに応用できるブロックになります。必要がなければshブロックごと削除してもらってOKです。</p>
+これは2カラムページ(<a href="index_c2.jsp">index_c2.jsp</a>)でも解説していますが、例えば画面幅が900px未満になった際に場所をとるsubメニューを消してこちらを表示させる、などに応用できるブロックになります。必要がなければshブロックごと削除してもらってOKです。</p>
 
 <h3>２カラムで使う事もできます</h3>
-<p><a href="index_c2.html">index_c2.html</a>をご覧下さい。</p>
+<p><a href="index_c2.jsp">index_c2.jsp</a>をご覧下さい。</p>
 
 </section>
 
@@ -252,12 +254,12 @@ cssフォルダのinview.cssの<span class="look">.crackerstyle img</span>の設
 <div id="footermenu">
 <ul>
 <li class="title">メニュー</li>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="company.html">運営会社</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="company.jsp">運営会社</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 <ul>
 <li class="title">メニュー見出し</li>
@@ -284,7 +286,7 @@ cssフォルダのinview.cssの<span class="look">.crackerstyle img</span>の設
 <!--/#footermenu-->
 
 <footer>
-<small>Copyright&copy; <a href="index.html">道の駅</a> All Rights Reserved.</small>
+<small>Copyright&copy; <a href="index.jsp">道の駅</a> All Rights Reserved.</small>
 <span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
 </footer>
 
@@ -293,15 +295,15 @@ cssフォルダのinview.cssの<span class="look">.crackerstyle img</span>の設
 
 <nav>
 <ul>
-<li><a href="index.html">ホーム</a></li>
-<li><a href="info.html">施設のご案内</a></li>
-<li><a href="shopping.html">お買い物</a></li>
-<li><a href="event.html">イベント</a></li>
-<li><a href="access.html">アクセス</a></li>
+<li><a href="index.jsp">ホーム</a></li>
+<li><a href="info.jsp">施設のご案内</a></li>
+<li><a href="shopping.jsp">お買い物</a></li>
+<li><a href="event.jsp">イベント</a></li>
+<li><a href="access.jsp">アクセス</a></li>
 </ul>
 </nav>
 
-<p class="btn"><a href="contact.html">お問い合わせ</a></p>
+<p class="btn"><a href="contact.jsp">お問い合わせ</a></p>
 
 <div class="sh">
 <p>※900px未満のメニュー開閉時にのみ表示させたい情報があればここ（shボックスの中）に入れて下さい。<br>
