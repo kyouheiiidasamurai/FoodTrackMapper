@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.AccountBeans;
+import beans.FoodTrackBeans;
 import model.AccountRegisterDAO;
+import model.FoodTrackRegisterDAO;
 
 /**
  * Servlet implementation class AccountRegister
@@ -108,6 +110,33 @@ public class DataRegister extends HttpServlet {
 
 	private void FoodTrackRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		String foodtrack_id = request.getParameter("foodtrack_id");
+		String foodtrack_name = request.getParameter("foodtrack_name");
+		int food_type = Integer.parseInt(request.getParameter("food_type"));
+		String station = request.getParameter("station");
+		String access_info = request.getParameter("access_info");
+		int user_no = Integer.parseInt(request.getParameter("user_no"));
+		int tel_no = Integer.parseInt(request.getParameter("tel_no"));
+		String comment_text = request.getParameter("comment_text");
+		String image = request.getParameter("image");
+		String category = request.getParameter("category");
+
+		FoodTrackBeans ftb = new FoodTrackBeans();
+		ftb.setFoodtrack_id(foodtrack_id);
+		ftb.setFoodtrack_name(foodtrack_name);
+		ftb.setFood_type(food_type);
+		ftb.setStation(station);
+		ftb.setAccess_info(access_info);
+		ftb.setUser_no(user_no);
+		ftb.setTel_no(tel_no);
+		ftb.setComment_text(comment_text);
+		ftb.setImage(image);
+		ftb.setCategory(category);
+
+		// フードトラック情報をDBに登録
+		FoodTrackRegisterDAO ftrd = new FoodTrackRegisterDAO(ftb);
+
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/shop.jsp");
 		rd.forward(request, response);
 	}

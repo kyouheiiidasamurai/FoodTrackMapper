@@ -31,7 +31,7 @@ CREATE TABLE tb_foodtrack (
   , access_info varchar(200) NOT NULL   -- 位置情報
   , user_no int(11) NOT NULL   -- 店舗主ユーザーNo
   , tel_no int(11) NOT NULL   -- 電話番号
-  , comment varchar(200)    -- コメント
+  , comment_text varchar(200)    -- コメント
   , image varchar(200)    -- 写真
   , category varchar(200)    -- カテゴリ
   , point int(11)   DEFAULT 0   -- 評価数

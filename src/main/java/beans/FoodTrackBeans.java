@@ -11,7 +11,7 @@ public class FoodTrackBeans implements Serializable {
 	private String access_info;
 	private int user_no;
 	private int tel_no;
-	private String comment;
+	private String comment_text;
 	private String image;
 	private String category;
 	private int point;
@@ -72,12 +72,12 @@ public class FoodTrackBeans implements Serializable {
 		this.tel_no = tel_no;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getComment_text() {
+		return comment_text;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComment_text(String comment_text) {
+		this.comment_text = comment_text;
 	}
 
 	public String getImage() {

@@ -35,6 +35,7 @@ public class AccountDAO {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				// 見つかったアカウント情報を戻り値にセット
+				returnAb.setUser_no(rs.getInt("user_no"));
 				returnAb.setUser_id(rs.getString("user_id"));
 				returnAb.setUser_name(rs.getString("user_name"));
 				returnAb.setMail_address(rs.getString("mail_address"));

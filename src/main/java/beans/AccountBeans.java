@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class AccountBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	private int user_no;
 	private String user_id;
 	private String user_name;
 	private String mail_address;
@@ -19,6 +20,14 @@ public class AccountBeans implements Serializable {
 	private String municipality;
 	private String address;
 	private String building_name;
+
+	public int getUser_no() {
+		return user_no;
+	}
+
+	public void setUser_no(int user_no) {
+		this.user_no = user_no;
+	}
 
 	public String getUser_id() {
 		return user_id;

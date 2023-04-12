@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import beans.AccountBeans;
+import beans.FoodTrackBeans;
 
 public class FoodTrackRegisterDAO {
 	// データベース接続に使用する情報
@@ -13,30 +13,26 @@ public class FoodTrackRegisterDAO {
 	final String jdbcPass = "admin";
 	final String jdbcUrl = "jdbc:mysql://localhost/testworks?useSSL=false";
 
-	public FoodTrackRegisterDAO(AccountBeans ab) {
+	public FoodTrackRegisterDAO(FoodTrackBeans ftb) {
 
 		try (Connection con = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPass)) {
 
-			String sql = "INSERT INTO tb_user(user_id, user_name, mail_address, password, type, birth_date, gender, "
-					+ "blood_type, job, post_code, prefectures, municipality, address, building_name, "
-					+ "registered_date, update_date) "
-					+ "VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , CURRENT_TIMESTAMP , CURRENT_TIMESTAMP )";
+			String sql = "INSERT INTO tb_foodtrack(foodtrack_id, foodtrack_name, food_type, station,"
+					+ " access_info, user_no, tel_no, comment_text, image, category, point, registered_date,"
+					+ " update_date) VALUES"
+					+ " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP , CURRENT_TIMESTAMP ) ";
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, ab.getUser_id());
-			ps.setString(2, ab.getUser_name());
-			ps.setString(3, ab.getMail_address());
-			ps.setString(4, ab.getPassword());
-			ps.setInt(5, ab.getType());
-			ps.setInt(6, ab.getBirth_date());
-			ps.setInt(7, ab.getGender());
-			ps.setInt(8, ab.getBlood_type());
-			ps.setString(9, ab.getJob());
-			ps.setInt(10, ab.getPost_code());
-			ps.setInt(11, ab.getPrefectures());
-			ps.setString(12, ab.getMunicipality());
-			ps.setString(13, ab.getAddress());
-			ps.setString(14, ab.getBuilding_name());
+			ps.setString(1, ftb.getFoodtrack_id());
+			ps.setString(2, ftb.getFoodtrack_name());
+			ps.setInt(3, ftb.getFood_type());
+			ps.setString(4, ftb.getStation());
+			ps.setString(5, ftb.getAccess_info());
+			ps.setInt(6, ftb.getUser_no());
+			ps.setInt(7, ftb.getTel_no());
+			ps.setString(8, ftb.getComment_text());
+			ps.setString(9, ftb.getImage());
+			ps.setString(10, ftb.getCategory());
 
 			int r = ps.executeUpdate();
 
