@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <div id="footermenu">
 	<ul>
 		<li class="title">メニュー</li>

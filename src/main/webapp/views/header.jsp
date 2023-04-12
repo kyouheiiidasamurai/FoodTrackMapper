@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script></script>
 <header>
+	<a href="login.jsp" class="login">ログイン</a>
 	<h1 id="logo">
 		<a href="index.jsp"><img src="images/logo.png" alt="FoodTrackMapper"></a>
 	</h1>

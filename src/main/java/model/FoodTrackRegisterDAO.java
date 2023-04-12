@@ -7,13 +7,13 @@ import java.sql.SQLException;
 
 import beans.AccountBeans;
 
-public class AccountRegisterDAO {
+public class FoodTrackRegisterDAO {
 	// データベース接続に使用する情報
 	final String jdbcId = "root";
 	final String jdbcPass = "admin";
 	final String jdbcUrl = "jdbc:mysql://localhost/testworks?useSSL=false";
 
-	public AccountRegisterDAO(AccountBeans ab) {
+	public FoodTrackRegisterDAO(AccountBeans ab) {
 
 		try (Connection con = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPass)) {
 

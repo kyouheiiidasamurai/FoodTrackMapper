@@ -45,13 +45,13 @@ public class AccountSearch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String loginId = request.getParameter("loginId");
-		String pass = request.getParameter("pass");
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
 		// login.jspから受け取ったログインIDとpassをビーンズにセット
 		AccountBeans ab = new AccountBeans();
-		ab.setUserNo(loginId);
-		ab.setMailAddress(loginId);
-		ab.setPassword(pass);
+		ab.setUser_id(userId);
+		ab.setMail_address(userId);
+		ab.setPassword(password);
 
 		// アカウントの有無を検索
 		// 検索したアカウント情報を取得
@@ -63,11 +63,11 @@ public class AccountSearch extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("account", returnAb);
 
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/loginSuccess.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/index.jsp");
 			rd.forward(request, response);
 
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/error.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
 			rd.forward(request, response);
 		}
 	}

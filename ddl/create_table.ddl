@@ -10,8 +10,8 @@ CREATE TABLE tb_user (
   , birth_date int(8)    -- 生年月日
   , gender int(1)    -- 性別
   , blood_type int(1)    -- 血液型
-  , job int(2)    -- 職業
-  , post _code int(7)    -- 郵便番号
+  , job varchar(200)    -- 職業
+  , post_code int(7)    -- 郵便番号
   , prefectures int(2)    -- 都道府県
   , municipality varchar(200)    -- 市町村
   , address varchar(200)    -- 番地

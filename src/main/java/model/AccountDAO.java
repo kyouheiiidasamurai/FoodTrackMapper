@@ -28,17 +28,28 @@ public class AccountDAO {
 					+ "    AND password = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, ab.getUserNo());
-			ps.setString(2, ab.getMailAddress());
+			ps.setString(1, ab.getUser_id());
+			ps.setString(2, ab.getMail_address());
 			ps.setString(3, ab.getPassword());
 
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				// 見つかったアカウント情報を戻り値にセット
-				returnAb.setUserNo(sql);
-				returnAb.setPassword(sql);
-				returnAb.setMailAddress(sql);
-				returnAb.setType(rs.getInt("roleId"));
+				returnAb.setUser_id(rs.getString("user_id"));
+				returnAb.setUser_name(rs.getString("user_name"));
+				returnAb.setMail_address(rs.getString("mail_address"));
+				returnAb.setPassword(rs.getString("password"));
+				returnAb.setType(rs.getInt("type"));
+				returnAb.setBirth_date(rs.getInt("birth_date"));
+				returnAb.setGender(rs.getInt("gender"));
+				returnAb.setBlood_type(rs.getInt("blood_type"));
+				returnAb.setJob(rs.getString("job"));
+				returnAb.setPost_code(rs.getInt("post_code"));
+				returnAb.setPrefectures(rs.getInt("prefectures"));
+				returnAb.setMunicipality(rs.getString("municipality"));
+				returnAb.setAddress(rs.getString("address"));
+				returnAb.setBuilding_name(rs.getString("building_name"));
+
 			} else {
 				// アカウントがなければnullを返す
 				return null;
