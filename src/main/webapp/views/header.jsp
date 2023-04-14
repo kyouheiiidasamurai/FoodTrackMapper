@@ -1,10 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script></script>
+<%
+// Servletのデータ受け取り
+int intUserNo = (int) session.getAttribute("userNo");
+%>
+<script>
+	var ahref = document.getElementById('loginuser');
+
+	ahref.addEventListener('click', function() {
+		alert(document.myform.mytext.value);
+
+		document.myform.action = request.getContextPath() + "/InfoDisplay";
+		document.myform.method = "post";
+		document.myform.submit();
+	})
+	
+	var alogout = document.getElementById('logoutuser');
+
+	alogout.addEventListener('click', function() {
+		alert(document.logout.mytext.value);
+
+		document.logout.action = request.getContextPath() + "/Logout";
+		document.logout.method = "get";
+		document.logout.submit();
+	})
+</script>
 <header>
+	<% if(intUserNo>0){ %>
+	<form name="myform">
+		<input type="hidden" name="user_no" value="<%=intUserNo%>">
+		<a id="loginuser" href="#" class="login">ユーザーページ</a>
+	</form>
+	<form name="logout">
+		<a id="logoutuser" href="#" class="login">ログアウト</a>
+	</form>
+	<% } else {	%>
 	<a href="login.jsp" class="login">ログイン</a>
+	<% } %>
 	<h1 id="logo">
-		<a href="index.jsp"><img src="images/logo.png" alt="FoodTrackMapper"></a>
+		<a href="index.jsp"><img src="images/logo.png"
+			alt="FoodTrackMapper"></a>
 	</h1>
 </header>
 <nav id="header-menu">

@@ -98,7 +98,7 @@ public class DataRegister extends HttpServlet {
 		ab.setBuilding_name(buildingName);
 
 		// アカウントをDBに登録
-		AccountRegisterDAO ard = new AccountRegisterDAO(ab);
+		new AccountRegisterDAO(ab);
 
 		// セッションにアカウント情報を保存
 		HttpSession session = request.getSession();
@@ -135,7 +135,7 @@ public class DataRegister extends HttpServlet {
 		ftb.setCategory(category);
 
 		// フードトラック情報をDBに登録
-		FoodTrackRegisterDAO ftrd = new FoodTrackRegisterDAO(ftb);
+		new FoodTrackRegisterDAO(ftb);
 
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/shop.jsp");
 		rd.forward(request, response);

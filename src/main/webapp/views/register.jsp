@@ -20,11 +20,11 @@ int intRoute = (int) request.getAttribute("route");
 		<main>
 			<section>
 				<div class="c">
-					<form action="/test/DataRegister" method="post">
+					<form action="<%=request.getContextPath()%>/DataRegister" method="post">
 						<% if(intRoute == 1) {%>
-						<jsp:include page="parts/accountregister.jsp" flush="true" />
+						<jsp:include page="accountregister.jsp" flush="true" />
 						<% } else if (intRoute == 2) { %>
-						<jsp:include page="parts/foodtrackregister.jsp" flush="true" />
+						<jsp:include page="foodtrackregister.jsp" flush="true" />
 						<% } %>
 						<input type="hidden" name="type" value="<%=intRoute%>"> <input
 							type="submit" value="登録"><br>
