@@ -15,16 +15,16 @@ int intRoute = (int) request.getAttribute("route");
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" flush="true" />
+	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
 		<main>
 			<section>
 				<div class="c">
 					<form action="<%=request.getContextPath()%>/DataRegister" method="post">
 						<% if(intRoute == 1) {%>
-						<jsp:include page="accountregister.jsp" flush="true" />
+						<jsp:include page="register/account.jsp" flush="true" />
 						<% } else if (intRoute == 2) { %>
-						<jsp:include page="foodtrackregister.jsp" flush="true" />
+						<jsp:include page="register/foodtrack.jsp" flush="true" />
 						<% } %>
 						<input type="hidden" name="type" value="<%=intRoute%>"> <input
 							type="submit" value="登録"><br>
@@ -32,8 +32,8 @@ int intRoute = (int) request.getAttribute("route");
 				</div>
 			</section>
 		</main>
-		<jsp:include page="footer.jsp" flush="true" />
-		<jsp:include page="menubar.jsp" flush="true" />
+		<jsp:include page="parts/footer.jsp" flush="true" />
+		<jsp:include page="parts/menubar.jsp" flush="true" />
 	</div>
 	<!--/#container-->
 	<!--jQueryの読み込み-->

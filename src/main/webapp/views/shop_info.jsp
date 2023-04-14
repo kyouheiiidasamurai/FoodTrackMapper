@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" flush="true" />
+	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
 		<nav id="header-menu">
 			<ul>
@@ -399,8 +399,8 @@
 				<!--/.list-container-->
 			</section>
 		</main>
-		<jsp:include page="footer.jsp" flush="true" />
-		<jsp:include page="menubar.jsp" flush="true" />
+		<jsp:include page="parts/footer.jsp" flush="true" />
+		<jsp:include page="parts/menubar.jsp" flush="true" />
 	</div>
 	<!--/#container-->
 	<!--jQueryの読み込み-->

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AccountRegister
  */
-@WebServlet("/DataRegister")
+@WebServlet("/RouteRegister")
 public class RouteRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

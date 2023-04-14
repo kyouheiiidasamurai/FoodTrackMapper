@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%
 // Servletのデータ受け取り
-int intUserNo = (int) session.getAttribute("userNo");
+	int intUserNo = 0;
+    if (session != null && session.getAttribute("userNo") != null) {
+		intUserNo = (int) session.getAttribute("userNo");
+    }
 %>
 <script>
 	var ahref = document.getElementById('loginuser');

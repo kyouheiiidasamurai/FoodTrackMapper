@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" flush="true" />
+	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
 		<main>
 			<section>
