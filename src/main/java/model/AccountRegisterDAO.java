@@ -6,16 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import beans.AccountBeans;
+import constant.DBConf;
 
 public class AccountRegisterDAO {
-	// データベース接続に使用する情報
-	final String jdbcId = "root";
-	final String jdbcPass = "admin";
-	final String jdbcUrl = "jdbc:mysql://localhost/testworks?useSSL=false";
-
 	public AccountRegisterDAO(AccountBeans ab) {
 
-		try (Connection con = DriverManager.getConnection(jdbcUrl, jdbcId, jdbcPass)) {
+		try (Connection con = DriverManager.getConnection(DBConf.JDBCURL, DBConf.JDBCID, DBConf.JDBCPASS)) {
 
 			String sql = "INSERT INTO tb_user(user_id, user_name, mail_address, password, type, birth_date, gender, "
 					+ "blood_type, job, post_code, prefectures, municipality, address, building_name, "

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class FoodTrackBeans implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private int foodtrack_no;
 	private String foodtrack_id;
 	private String foodtrack_name;
 	private int food_type;
@@ -15,6 +16,14 @@ public class FoodTrackBeans implements Serializable {
 	private String image;
 	private String category;
 	private int point;
+
+	public int getFoodtrack_no() {
+		return foodtrack_no;
+	}
+
+	public void setFoodtrack_no(int foodtrack_no) {
+		this.foodtrack_no = foodtrack_no;
+	}
 
 	public String getFoodtrack_id() {
 		return foodtrack_id;

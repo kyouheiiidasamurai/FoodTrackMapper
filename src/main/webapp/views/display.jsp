@@ -17,25 +17,15 @@ int intRoute = (int) request.getAttribute("route");
 <body>
 	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
-	<jsp:include page="parts/headnav.jsp" flush="true" />
+		<jsp:include page="parts/headnav.jsp" flush="true" />
 		<main>
-			<section>
-				<div class="c">
-					<form action="<%=request.getContextPath()%>/DataRegister" method="post">
-						<% if(intRoute == 1) {%>
-						<jsp:include page="register/account.jsp" flush="true" />
-						<% } else if (intRoute == 2) { %>
-						<jsp:include page="register/foodtrack.jsp" flush="true" />
-						<% } else if (intRoute == 3) { %>
-						<jsp:include page="register/accountfix.jsp" flush="true" />
-						<% } else if (intRoute == 4) { %>
-						<jsp:include page="register/foodtrackfix.jsp" flush="true" />
-						<% } %>
-						<input type="hidden" name="type" value="<%=intRoute%>">
-						<input type="submit" value="登録"><br>
-					</form>
-				</div>
-			</section>
+			<% if (intRoute == 1) { %>
+			<jsp:include page="detail/user.jsp" flush="true" />
+			<% } else if (intRoute == 2) { %>
+			<jsp:include page="detail/owner.jsp" flush="true" />
+			<% } else if (intRoute == 3) { %>
+			<jsp:include page="detail/foodtrack.jsp" flush="true" />
+			<% } %>
 		</main>
 		<jsp:include page="parts/footer.jsp" flush="true" />
 		<jsp:include page="parts/menubar.jsp" flush="true" />

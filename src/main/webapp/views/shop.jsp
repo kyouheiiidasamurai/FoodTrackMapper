@@ -12,6 +12,7 @@
 <body>
 	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
+	<jsp:include page="parts/headnav.jsp" flush="true" />
 		<main>
 			<article>
 				<h2>フードトラック情報ページ</h2>

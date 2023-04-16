@@ -10,22 +10,9 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<header>
-		<h1 id="logo">
-			<a href="index.jsp"><img src="images/logo.png" alt="道の駅"></a>
-		</h1>
-	</header>
+	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
-		<nav id="header-menu">
-			<ul>
-				<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-				<li><a href="shopping.jsp">お買い物<i
-						class="fas fa-shopping-basket"></i></a></li>
-				<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
-				<li><a href="access.jsp">アクセス<i
-						class="fas fa-map-marker-alt"></i></a></li>
-			</ul>
-		</nav>
+	<jsp:include page="parts/headnav.jsp" flush="true" />
 		<main>
 			<article>
 				<h2>詳細ページ</h2>

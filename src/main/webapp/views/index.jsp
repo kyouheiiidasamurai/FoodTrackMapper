@@ -29,11 +29,9 @@
 		<nav id="header-menu">
 			<ul>
 				<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-				<li><a href="shopping.jsp">お買い物<i
-						class="fas fa-shopping-basket"></i></a></li>
+				<li><a href="shopping.jsp">お買い物<i class="fas fa-shopping-basket"></i></a></li>
 				<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
-				<li><a href="access.jsp">アクセス<i
-						class="fas fa-map-marker-alt"></i></a></li>
+				<li><a href="access.jsp">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
 			</ul>
 		</nav>
 		<main>
@@ -216,76 +214,8 @@
 				</ul>
 			</section>
 		</main>
-		<div id="footermenu">
-			<ul>
-				<li class="title">メニュー</li>
-				<li><a href="index.jsp">ホーム</a></li>
-				<li><a href="company.jsp">運営会社</a></li>
-				<li><a href="info.jsp">施設のご案内</a></li>
-				<li><a href="shopping.jsp">お買い物</a></li>
-				<li><a href="event.jsp">イベント</a></li>
-				<li><a href="access.jsp">アクセス</a></li>
-			</ul>
-			<ul>
-				<li class="title">メニュー見出し</li>
-				<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-			</ul>
-			<ul>
-				<li class="title">メニュー見出し</li>
-				<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-			</ul>
-			<ul>
-				<li class="title">メニュー見出し</li>
-				<li><a href="#">サンプルメニューサンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-				<li><a href="#">サンプルメニュー</a></li>
-			</ul>
-		</div>
-		<!--/#footermenu-->
-		<footer>
-			<small>Copyright&copy; <a href="index.jsp">道の駅</a> All Rights
-				Reserved.
-			</small> <span class="pr"><a href="https://template-party.com/"
-				target="_blank">《Web Design:Template-Party》</a></span>
-		</footer>
-		<!--開閉ブロック-->
-		<div id="menubar">
-			<nav>
-				<ul>
-					<li><a href="index.jsp">ホーム</a></li>
-					<li><a href="info.jsp">施設のご案内</a></li>
-					<li><a href="shopping.jsp">お買い物</a></li>
-					<li><a href="event.jsp">イベント</a></li>
-					<li><a href="access.jsp">アクセス</a></li>
-				</ul>
-			</nav>
-			<p class="btn">
-				<a href="contact.jsp">お問い合わせ</a>
-			</p>
-			<div class="sh">
-				<p>
-					※900px未満のメニュー開閉時にのみ表示させたい情報があればここ（shボックスの中）に入れて下さい。<br>
-					サンプルテキスト。サンプルテキスト。<br> サンプルテキスト。サンプルテキスト。<br>
-					サンプルテキスト。サンプルテキスト。
-				</p>
-			</div>
-			<!--/.sh-->
-		</div>
-		<!--/#menubar-->
-		<!--開閉ボタン（ハンバーガーアイコン）-->
-		<div id="menubar_hdr">
-			<div>
-				<span></span><span></span><span></span>
-			</div>
-			<p>MENU</p>
-		</div>
+		<jsp:include page="parts/footer.jsp" flush="true" />
+		<jsp:include page="parts/menubar.jsp" flush="true" />
 	</div>
 	<!--/#container-->
 	<!--jQueryの読み込み-->

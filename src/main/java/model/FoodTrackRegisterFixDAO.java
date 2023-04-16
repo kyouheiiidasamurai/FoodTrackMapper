@@ -8,16 +8,16 @@ import java.sql.SQLException;
 import beans.FoodTrackBeans;
 import constant.DBConf;
 
-public class FoodTrackRegisterDAO {
+public class FoodTrackRegisterFixDAO {
 
-	public FoodTrackRegisterDAO(FoodTrackBeans ftb) {
+	public FoodTrackRegisterFixDAO(FoodTrackBeans ftb) {
 
 		try (Connection con = DriverManager.getConnection(DBConf.JDBCURL, DBConf.JDBCID, DBConf.JDBCPASS)) {
 
-			String sql = "INSERT INTO tb_foodtrack(foodtrack_id, foodtrack_name, food_type, station,"
-					+ " access_info, user_no, tel_no, comment_text, image, category, point, registered_date,"
-					+ " update_date) VALUES"
-					+ " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, CURRENT_TIMESTAMP , CURRENT_TIMESTAMP ) ";
+			String sql = "UPDATE tb_foodtrack SET foodtrack_id = ?, foodtrack_name = ?,"
+					+ " food_type = ?, station = ?, access_info = ?, tel_no = ?,"
+					+ " comment_text = ?, image = ?, category = ?, point = ?, update_date = CURRENT_TIMESTAMP "
+					+ "WHERE foodtrack_no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, ftb.getFoodtrack_id());
@@ -25,18 +25,18 @@ public class FoodTrackRegisterDAO {
 			ps.setInt(3, ftb.getFood_type());
 			ps.setString(4, ftb.getStation());
 			ps.setString(5, ftb.getAccess_info());
-			ps.setInt(6, ftb.getUser_no());
-			ps.setInt(7, ftb.getTel_no());
-			ps.setString(8, ftb.getComment_text());
-			ps.setString(9, ftb.getImage());
-			ps.setString(10, ftb.getCategory());
+			ps.setInt(6, ftb.getTel_no());
+			ps.setString(7, ftb.getComment_text());
+			ps.setString(8, ftb.getImage());
+			ps.setString(9, ftb.getCategory());
+			ps.setInt(10, ftb.getFoodtrack_no());
 
 			int r = ps.executeUpdate();
 
 			if (r != 0) {
-				System.out.println("新規登録成功！");
+				System.out.println("修正成功！");
 			} else {
-				System.out.println("新規登録失敗");
+				System.out.println("修正失敗");
 			}
 
 		} catch (SQLException e) {

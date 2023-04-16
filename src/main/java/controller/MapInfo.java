@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +13,19 @@ import javax.servlet.http.HttpSession;
 
 import beans.AccountBeans;
 import beans.FoodTrackBeans;
-import model.AccountDAO;
 import model.FoodTrackDAO;
 
 /**
- * Servlet implementation class AccountRegister
+ * Servlet implementation class accountCheck
  */
-@WebServlet("/RouteRegister")
-public class RouteRegister extends HttpServlet {
+@WebServlet("/MapInfo")
+public class MapInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public RouteRegister() {
+	public MapInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -37,7 +37,7 @@ public class RouteRegister extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -46,37 +46,27 @@ public class RouteRegister extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int route = Integer.parseInt(request.getParameter("route"));
-		request.setAttribute("route", route);
-
-		HttpSession session = request.getSession();
+		// TODO Auto-generated method stub
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
+		// login.jspから受け取ったログインIDとpassをビーンズにセット
 		AccountBeans ab = new AccountBeans();
-		FoodTrackBeans ftb = new FoodTrackBeans();
+		ab.setUser_id(userId);
+		ab.setMail_address(userId);
+		ab.setPassword(password);
 
-		switch (route) {
-		// ユーザー新規登録
-		case 1:
-			break;
-		// フードトラック新規登録
-		case 2:
-			break;
-		// ユーザー情報修正
-		case 3:
-			AccountDAO ad = new AccountDAO();
-			AccountBeans returnAb = ad.getAccount((int) session.getAttribute("userNo"));
-			request.setAttribute("AccountDetail", returnAb);
-			break;
-		// フードトラック情報修正
-		case 4:
-			FoodTrackDAO ftd = new FoodTrackDAO();
-			FoodTrackBeans returnFtb = ftd.findFoodTrackByNo((int) session.getAttribute("foodTrackNo"));
-			request.setAttribute("FoodTrackDetail", returnFtb);
-			break;
-		default:
-			break;
-		}
+		// アカウントの有無を検索
+		// 検索したアカウント情報を取得
+		FoodTrackDAO ad = new FoodTrackDAO();
+		List<FoodTrackBeans> returnAbList = ad.findFoodTrackList();
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/register.jsp");
+		// セッションにアカウント情報＆ロールを登録
+		HttpSession session = request.getSession();
+		session.setAttribute("returnAbList", returnAbList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/info.jsp");
 		rd.forward(request, response);
+
 	}
+
 }

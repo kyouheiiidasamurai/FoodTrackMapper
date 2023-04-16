@@ -1083,12 +1083,18 @@ main h2.flag::after {
 
 /*テンプレートに追加するもの
 ---------------------------------------------------------------------------*/
+.loginbox{
+	width:40px;
+	height:40px;
+}
 .login{
 	text-align:right;
 	position: absolute;
     left: 90%;
 }
-
+.center_width{
+	width:80%;
+}
 
 
 /*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
