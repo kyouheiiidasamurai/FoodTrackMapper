@@ -8,11 +8,7 @@ int intRoute = (int) request.getAttribute("route");
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>FoodTrackMapper</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="FoodTrackMapper">
-<link rel="stylesheet" href="views/css/style.css">
+	<jsp:include page="parts/head.jsp" flush="true" />
 </head>
 <body>
 	<jsp:include page="parts/header.jsp" flush="true" />
@@ -41,18 +37,6 @@ int intRoute = (int) request.getAttribute("route");
 		<jsp:include page="parts/menubar.jsp" flush="true" />
 	</div>
 	<!--/#container-->
-	<!--jQueryの読み込み-->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!--パララックス（inview）-->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-	<script src="views/js/jquery.inview_set.js"></script>
-	<!--このテンプレート専用のスクリプト-->
-	<script src="views/js/main.js"></script>
-	<!--ページの上部へ戻るボタン-->
-	<div class="pagetop">
-		<a href="#"><i class="fas fa-angle-double-up"></i></a>
-	</div>
+		<jsp:include page="parts/footercommon.jsp" flush="true" />
 </body>
 </html>

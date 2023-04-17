@@ -10,12 +10,7 @@ int ftno = 1;
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>FoodTrackMapper</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="FoodTrackMapper">
-<link rel="stylesheet" href="css/style.css">
-
+	<jsp:include page="parts/head.jsp" flush="true" />
 <script>
 	var ahref = document.getElementById('shopinfo');
 

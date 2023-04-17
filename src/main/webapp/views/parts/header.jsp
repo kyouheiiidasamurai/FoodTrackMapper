@@ -30,7 +30,7 @@
 </script>
 <header>
 	<h1 id="logo">
-		<a href="index.jsp"><img src="images/logo.png" alt="FoodTrackMapper"></a>
+		<a href="index.jsp"><img src="<%=request.getContextPath()%>/views/images/logo.png" alt="FoodTrackMapper"></a>
 	</h1>
 </header>
 
