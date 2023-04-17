@@ -21,13 +21,13 @@
 						パスワード：<input type="password" name="pass" required><br>
 						<input type="submit" value="ログイン"><br>
 					</form>
-					<p>
-					<form action="<%=request.getContextPath()%>/DataRegister" method="post">
-						<p>アカウント登録がお済みでない方はこちらへ↓</p>
-						<input type="hidden" name="route" value="1">
-						<input type="submit" value="アカウント登録">
-					</form>
-					</p>
+					<div>
+						<form action="<%=request.getContextPath()%>/RouteRegister" method="post">
+							<p>アカウント登録がお済みでない方はこちらへ↓</p>
+							<input type="hidden" name="route" value="1">
+							<input type="submit" value="アカウント登録">
+						</form>
+					</div>
 				</div>
 			</section>
 		</main>

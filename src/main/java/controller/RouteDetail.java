@@ -47,7 +47,7 @@ public class RouteDetail extends HttpServlet {
 		} else if ("2".equals(request.getParameter("detailFlg"))) {
 			request.setAttribute("route", 3);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/display.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
 		rd.forward(request, response);
 	}
 }

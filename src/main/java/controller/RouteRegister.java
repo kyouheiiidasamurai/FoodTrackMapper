@@ -76,7 +76,7 @@ public class RouteRegister extends HttpServlet {
 			break;
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/register.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/register.jsp");
 		rd.forward(request, response);
 	}
 }

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <p>必須項目は、すべて入力してください</p>
 <p>
 	<input type="radio" name="type" value="1"><span>管理者で登録する</span>
