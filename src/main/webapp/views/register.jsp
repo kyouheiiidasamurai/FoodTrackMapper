@@ -27,7 +27,7 @@ int intRoute = (int) request.getAttribute("route");
 						<% } else if (intRoute == 4) { %>
 						<jsp:include page="register/foodtrackfix.jsp" flush="true" />
 						<% } %>
-						<input type="hidden" name="type" value="<%=intRoute%>">
+						<input type="hidden" name="route" value="<%=intRoute%>">
 						<input type="submit" value="登録"><br>
 					</form>
 				</div>

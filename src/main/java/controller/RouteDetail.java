@@ -44,7 +44,7 @@ public class RouteDetail extends HttpServlet {
 		HttpSession session = request.getSession();
 		if ("1".equals(request.getParameter("detailFlg")) && session != null && session.getAttribute("type") != null) {
 			request.setAttribute("route", (int) session.getAttribute("type"));
-		} else if ("2".equals(request.getParameter("detailFlg"))) {
+		} else {
 			request.setAttribute("route", 3);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");

@@ -5,9 +5,8 @@
 	var ahref = document.getElementById('shopinfo');
 
 	ahref.addEventListener('click', function() {
-		alert(document.myform.mytext.value);
 
-		document.myform.action = request.getContextPath() + "/RouteDetail";
+		document.myform.action = document.getElementByName("myformpath").value;
 		document.myform.method = "post";
 		document.myform.submit();
 	})
@@ -16,6 +15,7 @@
 	<ul>
 		<li>
 			<form name="map">
+		<input type="hidden" name="myformpath" value="<%=request.getContextPath()%>/RouteDetail">
 				<a id="shopinfo" href="#">FoodTrack<i class="fas fa-info-circle"></i></a>
 			</form>
 		</li>

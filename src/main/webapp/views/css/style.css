@@ -1092,10 +1092,24 @@ main h2.flag::after {
 	position: absolute;
     left: 90%;
 }
+.userpage{
+	text-align:right;
+	position: absolute;
+    left: 80%;
+}
+.logout{
+	text-align:right;
+	position: absolute;
+    left: 90%;
+}
 .center_width{
 	width:80%;
 }
 
+.register{
+	text-align:left;
+	padding-left:20%;
+}
 
 /*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
 

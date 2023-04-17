@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Utility.CommonUtility;
 import beans.AccountBeans;
 import beans.FoodTrackBeans;
 import model.AccountRegisterDAO;
@@ -23,6 +24,7 @@ import model.FoodTrackRegisterFixDAO;
 @WebServlet("/DataRegister")
 public class DataRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	CommonUtility cUtility = new CommonUtility();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -48,7 +50,7 @@ public class DataRegister extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int route = Integer.parseInt(request.getParameter("route"));
+		int route = cUtility.checkInt(request.getParameter("route"));
 
 		switch (route) {
 		case 1:
@@ -58,13 +60,13 @@ public class DataRegister extends HttpServlet {
 			this.FoodTrackRegister(request, response);
 			break;
 		case 3:
-			this.FoodTrackFixRegister(request, response);
+			this.AccountFixRegister(request, response);
 			break;
 		case 4:
 			this.FoodTrackFixRegister(request, response);
 			break;
 		default:
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/info.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("views/info.jsp");
 			rd.forward(request, response);
 			break;
 		}
@@ -73,20 +75,20 @@ public class DataRegister extends HttpServlet {
 	private void AccountRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String userId = request.getParameter("userId");
-		String userName = request.getParameter("userName");
-		String mailAddress = request.getParameter("mailAddress");
+		String userId = request.getParameter("user_id");
+		String userName = request.getParameter("user_name");
+		String mailAddress = request.getParameter("mail_address");
 		String password = request.getParameter("password");
-		int type = Integer.parseInt(request.getParameter("type"));
-		int birthDate = Integer.parseInt(request.getParameter("birthDate"));
-		int gender = Integer.parseInt(request.getParameter("gender"));
-		int bloodType = Integer.parseInt(request.getParameter("bloodType"));
+		int type = cUtility.checkInt(request.getParameter("type"));
+		int birthDate = cUtility.checkInt(request.getParameter("birth_date"));
+		int gender = cUtility.checkInt(request.getParameter("gender"));
+		int bloodType = cUtility.checkInt(request.getParameter("blood_type"));
 		String job = request.getParameter("job");
-		int postCode = Integer.parseInt(request.getParameter("postCode"));
-		int prefectures = Integer.parseInt(request.getParameter("prefectures"));
+		int postCode = cUtility.checkInt(request.getParameter("post_code"));
+		int prefectures = cUtility.checkInt(request.getParameter("prefectures"));
 		String municipality = request.getParameter("municipality");
 		String address = request.getParameter("address");
-		String buildingName = request.getParameter("buildingName");
+		String buildingName = request.getParameter("building_name");
 
 		// register.jspから受け取った値をビーンズにセット
 		AccountBeans ab = new AccountBeans();
@@ -112,7 +114,7 @@ public class DataRegister extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("account", ab);
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
 		rd.forward(request, response);
 	}
 
@@ -121,11 +123,11 @@ public class DataRegister extends HttpServlet {
 
 		String foodtrack_id = request.getParameter("foodtrack_id");
 		String foodtrack_name = request.getParameter("foodtrack_name");
-		int food_type = Integer.parseInt(request.getParameter("food_type"));
+		int food_type = cUtility.checkInt(request.getParameter("food_type"));
 		String station = request.getParameter("station");
 		String access_info = request.getParameter("access_info");
-		int user_no = Integer.parseInt(request.getParameter("user_no"));
-		int tel_no = Integer.parseInt(request.getParameter("tel_no"));
+		int user_no = cUtility.checkInt(request.getParameter("user_no"));
+		int tel_no = cUtility.checkInt(request.getParameter("tel_no"));
 		String comment_text = request.getParameter("comment_text");
 		String image = request.getParameter("image");
 		String category = request.getParameter("category");
@@ -145,27 +147,27 @@ public class DataRegister extends HttpServlet {
 		// フードトラック情報をDBに登録
 		new FoodTrackRegisterDAO(ftb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/shop.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/shop.jsp");
 		rd.forward(request, response);
 	}
 
 	private void AccountFixRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int userNo = Integer.parseInt(request.getParameter("userNo"));
-		String userId = request.getParameter("userId");
-		String userName = request.getParameter("userName");
-		String mailAddress = request.getParameter("mailAddress");
+		int userNo = cUtility.checkInt(request.getParameter("user_no"));
+		String userId = request.getParameter("user_id");
+		String userName = request.getParameter("user_name");
+		String mailAddress = request.getParameter("mail_address");
 		String password = request.getParameter("password");
-		int birthDate = Integer.parseInt(request.getParameter("birthDate"));
-		int gender = Integer.parseInt(request.getParameter("gender"));
-		int bloodType = Integer.parseInt(request.getParameter("bloodType"));
+		int birthDate = cUtility.checkInt(request.getParameter("birth_date"));
+		int gender = cUtility.checkInt(request.getParameter("gender"));
+		int bloodType = cUtility.checkInt(request.getParameter("blood_type"));
 		String job = request.getParameter("job");
-		int postCode = Integer.parseInt(request.getParameter("postCode"));
-		int prefectures = Integer.parseInt(request.getParameter("prefectures"));
+		int postCode = cUtility.checkInt(request.getParameter("post_code"));
+		int prefectures = cUtility.checkInt(request.getParameter("prefectures"));
 		String municipality = request.getParameter("municipality");
 		String address = request.getParameter("address");
-		String buildingName = request.getParameter("buildingName");
+		String buildingName = request.getParameter("building_name");
 
 		// register.jspから受け取った値をビーンズにセット
 		AccountBeans ab = new AccountBeans();
@@ -191,20 +193,20 @@ public class DataRegister extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("account", ab);
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/detail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/detail.jsp");
 		rd.forward(request, response);
 	}
 
 	private void FoodTrackFixRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int foodtrack_no = Integer.parseInt(request.getParameter("foodtrack_no"));
+		int foodtrack_no = cUtility.checkInt(request.getParameter("foodtrack_no"));
 		String foodtrack_id = request.getParameter("foodtrack_id");
 		String foodtrack_name = request.getParameter("foodtrack_name");
-		int food_type = Integer.parseInt(request.getParameter("food_type"));
+		int food_type = cUtility.checkInt(request.getParameter("food_type"));
 		String station = request.getParameter("station");
 		String access_info = request.getParameter("access_info");
-		int tel_no = Integer.parseInt(request.getParameter("tel_no"));
+		int tel_no = cUtility.checkInt(request.getParameter("tel_no"));
 		String comment_text = request.getParameter("comment_text");
 		String image = request.getParameter("image");
 		String category = request.getParameter("category");
@@ -224,7 +226,7 @@ public class DataRegister extends HttpServlet {
 		// フードトラック情報をDBに登録
 		new FoodTrackRegisterFixDAO(ftb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/detail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/detail.jsp");
 		rd.forward(request, response);
 	}
 

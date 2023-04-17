@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<div class="register">
 <p>必須項目は、すべて入力してください</p>
 <p>
 	<input type="radio" name="type" value="1"><span>管理者で登録する</span>
@@ -21,7 +22,9 @@
 	生年月日：<input type="text" name="birth_date">
 </p>
 <p>
-	性別 ：<input type="text" name="gender">
+	性別 ：
+	<input type="radio" name="gender" value="1"><span>男</span>
+	<input type="radio" name="gender" value="2"><span>女</span>
 </p>
 <p>
 	血液型 ：<input type="text" name="blood_type">
@@ -44,3 +47,4 @@
 <p>
 	建物名 ：<input type="text" name="building_name">
 </p>
+</div>

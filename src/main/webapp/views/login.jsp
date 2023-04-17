@@ -13,8 +13,8 @@
 			<section>
 				<div class="c">
 					<form action="<%=request.getContextPath()%>/AccountSearch" method="post">
-						ユーザーID：<input type="text" name="loginId" required><br>
-						パスワード：<input type="password" name="pass" required><br>
+						ユーザーID：<input type="text" name="userId" required><br>
+						パスワード：<input type="password" name="password" required><br>
 						<input type="submit" value="ログイン"><br>
 					</form>
 					<div>

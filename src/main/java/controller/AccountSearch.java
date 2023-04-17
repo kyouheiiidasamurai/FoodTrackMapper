@@ -63,11 +63,11 @@ public class AccountSearch extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("account", returnAb);
 
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("views/info.jsp");
 			rd.forward(request, response);
 
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
 			rd.forward(request, response);
 		}
 	}
