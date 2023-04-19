@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.AccountBeans;
+
 /**
  * Servlet implementation class AccountRegister
  */
@@ -42,8 +44,10 @@ public class RouteDetail extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if ("1".equals(request.getParameter("detailFlg")) && session != null && session.getAttribute("type") != null) {
-			request.setAttribute("route", (int) session.getAttribute("type"));
+		if ("1".equals(request.getParameter("detailFlg")) && session != null
+				&& session.getAttribute("account") != null) {
+			AccountBeans sessionAb = (AccountBeans) session.getAttribute("account");
+			request.setAttribute("route", sessionAb.getType());
 		} else {
 			request.setAttribute("route", 3);
 		}

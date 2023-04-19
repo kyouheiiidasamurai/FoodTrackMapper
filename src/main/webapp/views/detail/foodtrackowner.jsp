@@ -26,9 +26,9 @@ FoodTrackBeans ftb = (FoodTrackBeans) request.getAttribute("FoodTrackDetail");
 			<p>
 				評価数：<%=ftb.getPoint()%></p>
 		</div>
+		<form action="<%=request.getContextPath()%>/RouteRegister" method="post">
+			<input type="hidden" name="route" value="4">
+			<input type="submit" value="フードトラック情報修正">
+		</form>
 	</section>
-	<form action="<%=request.getContextPath()%>/DataRegister" method="post">
-		<input type="hidden" name="foodtrack_no" value="<%=ftb.getFoodtrack_no()%>">
-		<input type="submit" value="レビュー">
-	</form>
 </main>

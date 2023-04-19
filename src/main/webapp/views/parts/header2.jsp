@@ -20,22 +20,23 @@
 
 <div class="loginbox">
 	<% if(intUserNo>0){ %>
-
-		<form method="get" name="logout" action="<%=request.getContextPath()%>/Logout">
-		    <input type="hidden" name="user_name" value="名前">
-		    <a href="javascript:logout.submit()" class="logout">ログアウト</a>
-		</form>
-		<form method="post" name="user" action="<%=request.getContextPath()%>/RouteDetail">
-			<input type="hidden" name="user_no" value="<%=intUserNo%>">
-			<input type="hidden" name="detailFlg" value="1">
-		    <a href="javascript:user.submit()" class="userpage">ユーザーページ</a>
-		</form>
+	<form name="logout">
+		<input type="hidden" id="logoutpath" value="<%=request.getContextPath()%>/Logout">
+		<a id="logoutuser" href="#" class="logout">ログアウト</a>
+	</form>
+	<form name="user">
+		<input type="hidden" name="user_no" value="<%=intUserNo%>">
+		<input type="hidden" name="detailFlg" value="1">
+		<input type="hidden" id="userpath" value="<%=request.getContextPath()%>/RouteDetail">
+		<a id="loginuser" href="#" class="userpage">ユーザーページ</a>
+	</form>
 		<% if(intType == 1) { %>
-			<form method="post" name="foodtrack" action="<%=request.getContextPath()%>/RouteDetail">
-				<input type="hidden" name="user_no" value="<%=intUserNo%>">
-				<input type="hidden" name="detailFlg" value="3">
-			    <a href="javascript:foodtrack.submit()" class="foodtrack">フードトラック一覧</a>
-			</form>
+		<form name="foodtrack">
+			<input type="hidden" name="user_no" value="<%=intUserNo%>">
+			<input type="hidden" name="detailFlg" value="3">
+			<input type="hidden" id="foodtrackpath" value="<%=request.getContextPath()%>/RouteDetail">
+			<a id="foodtrack" href="#" class="foodtrack">フードトラック一覧</a>
+		</form>
 		<%} %>
 	<% } else {	%>
 	<a href="login.jsp" class="login">ログイン</a>

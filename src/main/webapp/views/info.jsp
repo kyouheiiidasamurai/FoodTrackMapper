@@ -11,17 +11,6 @@ List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("retu
 <html lang="ja">
 <head>
 	<jsp:include page="parts/head.jsp" flush="true" />
-<script>
-	var ahref = document.getElementById('shopinfo');
-
-	ahref.addEventListener('click', function() {
-		alert(document.myform.mytext.value);
-
-		document.myform.action = request.getContextPath() + "/RouteDetail";
-		document.myform.method = "post";
-		document.myform.submit();
-	})
-</script>
 </head>
 <body>
 	<jsp:include page="parts/header.jsp" flush="true" />
@@ -30,7 +19,7 @@ List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("retu
 		<main>
 			<section>
 				<div>
-					地図を表示 <img src="images/dummy_map_main.jpg" alt="">
+					地図を表示 <img src="<%=request.getContextPath()%>/views/images/dummy_map_main.jpg" alt="">
 				</div>
 			</section>
 			<section>
@@ -44,7 +33,7 @@ List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("retu
 								<th>評価ポイント</th>
 								<th>詳細</th>
 							</tr>
-							<c:forEach items="${ftbList}" var="ftb" varStatus="status">
+							<c:forEach items="${returnAbsList}" var="ftb" varStatus="status">
 								<tr>
 									<td><c:out value="${status.count}" /></td>
 									<td><c:out value="${ftb.foodtrack_name}" /></td>

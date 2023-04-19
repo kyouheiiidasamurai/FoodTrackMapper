@@ -19,9 +19,9 @@ int intRoute = (int) request.getAttribute("route");
 	<div id="container">
 		<jsp:include page="parts/headnav.jsp" flush="true" />
 		<main>
-			<% if (intRoute == 1) { %>
+			<% if (intRoute == 2) { %>
 			<jsp:include page="detail/user.jsp" flush="true" />
-			<% } else if (intRoute == 2) { %>
+			<% } else if (intRoute == 1) { %>
 			<jsp:include page="detail/owner.jsp" flush="true" />
 			<% } else if (intRoute == 3) { %>
 			<jsp:include page="detail/foodtrack.jsp" flush="true" />
@@ -31,18 +31,6 @@ int intRoute = (int) request.getAttribute("route");
 		<jsp:include page="parts/menubar.jsp" flush="true" />
 	</div>
 	<!--/#container-->
-	<!--jQueryの読み込み-->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<!--パララックス（inview）-->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-	<script src="js/jquery.inview_set.js"></script>
-	<!--このテンプレート専用のスクリプト-->
-	<script src="js/main.js"></script>
-	<!--ページの上部へ戻るボタン-->
-	<div class="pagetop">
-		<a href="#"><i class="fas fa-angle-double-up"></i></a>
-	</div>
+		<jsp:include page="parts/footercommon.jsp" flush="true" />
 </body>
 </html>
