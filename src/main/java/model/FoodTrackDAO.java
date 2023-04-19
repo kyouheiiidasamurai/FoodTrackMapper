@@ -57,10 +57,11 @@ public class FoodTrackDAO {
 	}
 
 	// FoodTrackInfoを探す
-	public FoodTrackBeans findFoodTrackByUser(int intUserNo) {
+	public List<FoodTrackBeans> findFoodTrackByUser(int intUserNo) {
 
 		// 戻り値の用意
 		FoodTrackBeans returnFtb = new FoodTrackBeans();
+		List<FoodTrackBeans> returnFtbList = new ArrayList<>();
 
 		// データベースへ接続
 		try (Connection con = DriverManager.getConnection(DBConf.JDBCURL, DBConf.JDBCID, DBConf.JDBCPASS)) {
@@ -87,7 +88,7 @@ public class FoodTrackDAO {
 				returnFtb.setImage(rs.getString("image"));
 				returnFtb.setCategory(rs.getString("category"));
 				returnFtb.setPoint(rs.getInt("point"));
-
+				returnFtbList.add(returnFtb);
 			} else {
 				// アカウントがなければnullを返す
 				return null;
@@ -96,7 +97,7 @@ public class FoodTrackDAO {
 			e.printStackTrace();
 			return null;
 		}
-		return returnFtb;
+		return returnFtbList;
 	}
 
 	// FoodTrackInfoを探す

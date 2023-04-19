@@ -5,7 +5,7 @@
 <%@ page import="java.util.List"%>
 <%
 request.setCharacterEncoding("UTF8");
-List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("returnAbsList");
+List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("returnFtbList");
 %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -33,15 +33,19 @@ List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("retu
 								<th>評価ポイント</th>
 								<th>詳細</th>
 							</tr>
-							<c:forEach items="${returnAbsList}" var="ftb" varStatus="status">
+							<c:forEach items="${returnFtbList}" var="ftb" varStatus="status">
 								<tr>
 									<td><c:out value="${status.count}" /></td>
 									<td><c:out value="${ftb.foodtrack_name}" /></td>
 									<td><c:out value="${ftb.station}" /></td>
 									<td><c:out value="${ftb.point}" /></td>
-									<td><form name="shopdetail">
-									<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrac_no}" />">
-									<a id="shopinfo "href="#">詳細</a></form></td>
+									<td>
+										<form method="post" name="shopdetail" action="<%=request.getContextPath()%>/RouteRegister">
+											<input type="hidden" name="route" value="4">
+											<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrac_no}" />">
+											<a href="javascript:shopdetail.submit()">詳細</a>
+										</form>
+									</td>
 								</tr>
 							 </c:forEach>
 					</table>

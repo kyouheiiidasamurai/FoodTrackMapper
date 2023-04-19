@@ -146,8 +146,9 @@ public class DataRegister extends HttpServlet {
 
 		// フードトラック情報をDBに登録
 		new FoodTrackRegisterDAO(ftb);
+		request.setAttribute("route", 3);
 
-		RequestDispatcher rd = request.getRequestDispatcher("views/shop.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/detaile.jsp");
 		rd.forward(request, response);
 	}
 

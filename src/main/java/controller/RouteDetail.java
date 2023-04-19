@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Utility.CommonUtility;
 import beans.AccountBeans;
+import beans.FoodTrackBeans;
+import model.FoodTrackDAO;
 
 /**
  * Servlet implementation class AccountRegister
@@ -18,6 +23,7 @@ import beans.AccountBeans;
 @WebServlet("/RouteDetail")
 public class RouteDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	CommonUtility cUtility = new CommonUtility();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -44,14 +50,35 @@ public class RouteDetail extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if ("1".equals(request.getParameter("detailFlg")) && session != null
-				&& session.getAttribute("account") != null) {
-			AccountBeans sessionAb = (AccountBeans) session.getAttribute("account");
-			request.setAttribute("route", sessionAb.getType());
+		AccountBeans sessionAb = new AccountBeans();
+		FoodTrackDAO ftb = new FoodTrackDAO();
+		FoodTrackBeans returnFtb = new FoodTrackBeans();
+		List<FoodTrackBeans> returnFtbList = new ArrayList<>();
+		if (session != null && session.getAttribute("account") != null) {
+			sessionAb = (AccountBeans) session.getAttribute("account");
+			returnFtbList = ftb.findFoodTrackByUser(sessionAb.getUser_no());
+			request.setAttribute("FoodTrackDetail", returnFtb);
+			if ("1".equals(request.getParameter("detailFlg"))) {
+				if (sessionAb.getType() == 1) {
+					returnFtbList = ftb.findFoodTrackByUser(sessionAb.getUser_no());
+					request.setAttribute("returnFtbList", returnFtbList);
+				}
+				request.setAttribute("AccountDetail", sessionAb);
+				request.setAttribute("route", sessionAb.getType());
+			} else if ("2".equals(request.getParameter("detailFlg"))) {
+				request.setAttribute("route", 3);
+				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+				request.setAttribute("FoodTrackDetail", returnFtb);
+			} else {
+				request.setAttribute("route", 3);
+				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+				request.setAttribute("FoodTrackDetail", returnFtbList);
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
+			rd.forward(request, response);
 		} else {
-			request.setAttribute("route", 3);
+			RequestDispatcher rd = request.getRequestDispatcher("views/login.jsp");
+			rd.forward(request, response);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
-		rd.forward(request, response);
 	}
 }

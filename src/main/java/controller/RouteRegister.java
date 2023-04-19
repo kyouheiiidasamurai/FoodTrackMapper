@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Utility.CommonUtility;
 import beans.AccountBeans;
 import beans.FoodTrackBeans;
 import model.AccountDAO;
@@ -21,6 +22,7 @@ import model.FoodTrackDAO;
 @WebServlet("/RouteRegister")
 public class RouteRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	CommonUtility cUtility = new CommonUtility();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -46,7 +48,7 @@ public class RouteRegister extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int route = Integer.parseInt(request.getParameter("route"));
+		int route = cUtility.checkInt(request.getParameter("route"));
 		request.setAttribute("route", route);
 
 		HttpSession session = request.getSession();
@@ -63,13 +65,13 @@ public class RouteRegister extends HttpServlet {
 		// ユーザー情報修正
 		case 3:
 			AccountDAO ad = new AccountDAO();
-			AccountBeans returnAb = ad.getAccount((int) session.getAttribute("userNo"));
+			AccountBeans returnAb = ad.getAccount(cUtility.checkInt(request.getParameter("user_no")));
 			request.setAttribute("AccountDetail", returnAb);
 			break;
 		// フードトラック情報修正
 		case 4:
 			FoodTrackDAO ftd = new FoodTrackDAO();
-			FoodTrackBeans returnFtb = ftd.findFoodTrackByNo((int) session.getAttribute("foodTrackNo"));
+			FoodTrackBeans returnFtb = ftd.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 			request.setAttribute("FoodTrackDetail", returnFtb);
 			break;
 		default:

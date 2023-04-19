@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="beans.AccountBeans"%>
 <%@ page import="beans.FoodTrackBeans"%>
+<%@ page import="java.util.List"%>
 <%
 AccountBeans ab = (AccountBeans) request.getAttribute("AccountDetail");
-FoodTrackBeans ftb = (FoodTrackBeans) request.getAttribute("FoodTrackDetail");
+List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("returnFtbList");
 int intType = ab.getType();
 %>
 <main>
@@ -41,33 +42,39 @@ int intType = ab.getType();
 				番地 ：<%=ab.getAddress()%></p>
 			<p>
 				建物名 ：<%=ab.getBuilding_name()%></p>
-			<form action="<%=request.getContextPath()%>/DataRegister" method="post">
+			<form action="<%=request.getContextPath()%>/RouteRegister" method="post">
+				<input type="hidden" name="user_no" value="<%=ab.getUser_no()%>">
 				<input type="hidden" name="route" value="3">
 				<input type="submit" value="アカウント修正">
 			</form>
-			
-			
-		<h2 class="flag">
-			フードトラック情報一覧<span>Information</span>
-		</h2>
+		</div>
+		<div class="c">
+			<h2>
+				フードトラック情報一覧<span>Information</span>
+			</h2>
 			<table border="2">
+				<tr>
+					<th>番号</th>
+					<th>店名</th>
+					<th>詳細</th>
+				</tr>
+				<c:forEach items="${returnFtbList}" var="ftb" varStatus="status">
 					<tr>
-						<th>番号</th>
-						<th>店名</th>
-						<th>詳細</th>
+						<td><c:out value="${status.count}" /></td>
+						<td><c:out value="${ftb.foodtrack_name}" /></td>
+						<td>
+							<form method="post" name="shopinfoform" action="<%=request.getContextPath()%>/RouteRegister">
+								<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrack_no}" />">
+								<input type="hidden" name="route" value="4">
+								<a href="javascript:shopinfoform.submit()">修正</a>
+							</form>
+						</td>
 					</tr>
-					<c:forEach items="${FoodTrackDetail}" var="ftb" varStatus="status">
-						<tr>
-							<td><c:out value="${status.count}" /></td>
-							<td><c:out value="${ftb.foodtrack_name}" /></td>
-							<td><form name="shopinfoform">
-							<input id="shopinfopath" value="request.getContextPath() + "/RouteRegister"">
-							<a id="shopinfo "href="#">詳細</a></form></td>
-						</tr>
-					 </c:forEach>
+				</c:forEach>
 			</table>
-		
-			<form action="<%=request.getContextPath()%>/DataRegister" method="post">
+
+			<form action="<%=request.getContextPath()%>/RouteRegister"
+				method="post">
 				<input type="hidden" name="route" value="2">
 				<input type="submit" value="フードトラック情報登録">
 			</form>

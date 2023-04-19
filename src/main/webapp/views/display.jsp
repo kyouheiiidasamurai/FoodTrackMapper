@@ -8,11 +8,7 @@ int intRoute = (int) request.getAttribute("route");
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>FoodTrackMapper</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="FoodTrackMapper">
-<link rel="stylesheet" href="css/style.css">
+	<jsp:include page="parts/head.jsp" flush="true" />
 </head>
 <body>
 	<jsp:include page="parts/header.jsp" flush="true" />

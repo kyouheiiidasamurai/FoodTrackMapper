@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.AccountBeans;
 import beans.FoodTrackBeans;
 import model.FoodTrackDAO;
 
@@ -46,25 +45,17 @@ public class MapInfo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String userId = request.getParameter("userId");
-		String password = request.getParameter("password");
-		// login.jspから受け取ったログインIDとpassをビーンズにセット
-		AccountBeans ab = new AccountBeans();
-		ab.setUser_id(userId);
-		ab.setMail_address(userId);
-		ab.setPassword(password);
 
 		// アカウントの有無を検索
 		// 検索したアカウント情報を取得
-		FoodTrackDAO ad = new FoodTrackDAO();
-		List<FoodTrackBeans> returnAbList = ad.findFoodTrackList();
+		FoodTrackDAO ftd = new FoodTrackDAO();
+		List<FoodTrackBeans> returnFtbList = ftd.findFoodTrackList();
 
 		// セッションにアカウント情報＆ロールを登録
 		HttpSession session = request.getSession();
-		session.setAttribute("returnAbList", returnAbList);
+		session.setAttribute("returnFtbList", returnFtbList);
 
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/info.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/info.jsp");
 		rd.forward(request, response);
 
 	}

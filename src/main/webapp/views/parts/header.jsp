@@ -38,6 +38,6 @@
 			</form>
 		<%} %>
 	<% } else {	%>
-	<a href="login.jsp" class="login">ログイン</a>
+	<a href="<%=request.getContextPath()%>/views/login.jsp" class="login">ログイン</a>
 	<% } %>
 </div>

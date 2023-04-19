@@ -14,10 +14,5 @@ FoodTrackBeans ftb = (FoodTrackBeans) request.getAttribute("FoodTrackDetail");
 <p>コメント:<input type="text" name="comment" value="<%= ftb.getFoodtrack_id() %>" ></p>
 <p>写真:<input type="text" name="image" value="<%= ftb.getFoodtrack_id() %>" ></p>
 <p>カテゴリ:<input type="text" name="category" value="<%= ftb.getFoodtrack_id() %>" ></p>
-<%
-// Servletのデータ受け取り
-int intUserNo = (int) session.getAttribute("userNo");
-%>
-<input type="hidden" name="user_no" value="<%= intUserNo %>">
 <input type="hidden" name="foodtrack_no" value="<%= ftb.getFoodtrack_no() %>">
 </div>
