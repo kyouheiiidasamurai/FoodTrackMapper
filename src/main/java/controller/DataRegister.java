@@ -155,6 +155,7 @@ public class DataRegister extends HttpServlet {
 	private void AccountFixRegister(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// インプットされた要素から、データを取る
 		int userNo = cUtility.checkInt(request.getParameter("user_no"));
 		String userId = request.getParameter("user_id");
 		String userName = request.getParameter("user_name");
