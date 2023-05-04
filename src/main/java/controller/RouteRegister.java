@@ -54,6 +54,9 @@ public class RouteRegister extends HttpServlet {
 		HttpSession session = request.getSession();
 		AccountBeans ab = new AccountBeans();
 		FoodTrackBeans ftb = new FoodTrackBeans();
+		FoodTrackDAO ftd = new FoodTrackDAO();
+		AccountDAO ad = new AccountDAO();
+		FoodTrackBeans returnFtb = new FoodTrackBeans();
 
 		switch (route) {
 		// ユーザー新規登録
@@ -64,14 +67,17 @@ public class RouteRegister extends HttpServlet {
 			break;
 		// ユーザー情報修正
 		case 3:
-			AccountDAO ad = new AccountDAO();
 			AccountBeans returnAb = ad.getAccount(cUtility.checkInt(request.getParameter("user_no")));
 			request.setAttribute("AccountDetail", returnAb);
 			break;
 		// フードトラック情報修正
 		case 4:
-			FoodTrackDAO ftd = new FoodTrackDAO();
-			FoodTrackBeans returnFtb = ftd.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+			returnFtb = ftd.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+			request.setAttribute("FoodTrackDetail", returnFtb);
+			break;
+		// レビュー登録機能
+		case 5:
+			returnFtb = ftd.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 			request.setAttribute("FoodTrackDetail", returnFtb);
 			break;
 		default:

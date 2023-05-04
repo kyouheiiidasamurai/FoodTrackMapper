@@ -3,37 +3,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>FoodTrackMapper</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="フードトラックの検索サイト">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.css">
-<link rel="stylesheet" href="css/style.css">
+	<jsp:include page="parts/head.jsp" flush="true" />
 </head>
-<body class="home">
-	<header>
-		<h1 id="logo">
-			<a href="index.jsp"><img src="images/logo_home.png" alt="道の駅"></a>
-		</h1>
-		<ul id="lang-nav">
-			<li><a href="">English</a></li>
-			<li><a href="">中文</a></li>
-		</ul>
-		<!--スライドショー-->
-		<div id="mainimg">
-			<img src="images/mainimg_bg.png" alt="" id="kazari">
-		</div>
-	</header>
+<body>
+	<jsp:include page="parts/header.jsp" flush="true" />
 	<div id="container">
-		<nav id="header-menu">
-			<ul>
-				<li><a href="info.jsp">施設のご案内<i class="fas fa-info-circle"></i></a></li>
-				<li><a href="shopping.jsp">お買い物<i class="fas fa-shopping-basket"></i></a></li>
-				<li><a href="event.jsp">イベント<i class="far fa-calendar-alt"></i></a></li>
-				<li><a href="access.jsp">アクセス<i class="fas fa-map-marker-alt"></i></a></li>
-			</ul>
-		</nav>
+		<jsp:include page="parts/headnav.jsp" flush="true" />
 		<main>
 			<section>
 				<h2 class="flag">

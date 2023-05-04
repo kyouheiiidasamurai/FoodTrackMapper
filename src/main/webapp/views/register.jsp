@@ -26,6 +26,8 @@ int intRoute = (int) request.getAttribute("route");
 						<jsp:include page="register/accountfix.jsp" flush="true" />
 						<% } else if (intRoute == 4) { %>
 						<jsp:include page="register/foodtrackfix.jsp" flush="true" />
+						<% } else if (intRoute == 5) { %>
+						<jsp:include page="register/review.jsp" flush="true" />
 						<% } %>
 						<input type="hidden" name="route" value="<%=intRoute%>">
 						<input type="submit" value="登録"><br>

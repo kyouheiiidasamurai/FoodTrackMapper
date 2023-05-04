@@ -13,10 +13,14 @@ import javax.servlet.http.HttpSession;
 import Utility.CommonUtility;
 import beans.AccountBeans;
 import beans.FoodTrackBeans;
+import beans.ReviewBeans;
 import model.AccountRegisterDAO;
 import model.AccountRegisterFixDAO;
+import model.FoodTrackDAO;
 import model.FoodTrackRegisterDAO;
 import model.FoodTrackRegisterFixDAO;
+import model.ReviewDAO;
+import model.ReviewRegisterDAO;
 
 /**
  * Servlet implementation class AccountRegister
@@ -64,6 +68,9 @@ public class DataRegister extends HttpServlet {
 			break;
 		case 4:
 			this.FoodTrackFixRegister(request, response);
+			break;
+		case 5:
+			this.ReviewRegister(request, response);
 			break;
 		default:
 			RequestDispatcher rd = request.getRequestDispatcher("views/info.jsp");
@@ -148,7 +155,7 @@ public class DataRegister extends HttpServlet {
 		new FoodTrackRegisterDAO(ftb);
 		request.setAttribute("route", 3);
 
-		RequestDispatcher rd = request.getRequestDispatcher("views/detaile.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
 		rd.forward(request, response);
 	}
 
@@ -195,7 +202,8 @@ public class DataRegister extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("account", ab);
 
-		RequestDispatcher rd = request.getRequestDispatcher("views/detail.jsp");
+		request.setAttribute("route", 1);
+		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
 		rd.forward(request, response);
 	}
 
@@ -228,8 +236,41 @@ public class DataRegister extends HttpServlet {
 		// フードトラック情報をDBに登録
 		new FoodTrackRegisterFixDAO(ftb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("views/detail.jsp");
+		request.setAttribute("route", 4);
+		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
 		rd.forward(request, response);
 	}
 
+	private void ReviewRegister(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		AccountBeans ab = (AccountBeans) session.getAttribute("account");
+
+		String review_title = request.getParameter("review_title");
+		String review_content = request.getParameter("review_content");
+		int review_user = ab.getUser_no();
+		int foodtrack_no = cUtility.checkInt(request.getParameter("foodtrack_no"));
+		int point = cUtility.checkInt(request.getParameter("point"));
+		FoodTrackDAO ftb = new FoodTrackDAO();
+		FoodTrackBeans returnFtb = new FoodTrackBeans();
+
+		ReviewBeans rb = new ReviewBeans();
+		rb.setReview_title(review_title);
+		rb.setReview_content(review_content);
+		rb.setReview_user(review_user);
+		rb.setFoodtrack_no(foodtrack_no);
+		rb.setPoint(point);
+
+		new ReviewRegisterDAO(rb);
+		ReviewDAO rdao = new ReviewDAO();
+		FoodTrackDAO ftd = new FoodTrackDAO();
+		ftd.updatePoint(foodtrack_no, rdao.getPoint(foodtrack_no));
+
+		request.setAttribute("route", 3);
+		returnFtb = ftb.findFoodTrackByNo(foodtrack_no);
+		request.setAttribute("FoodTrackDetail", returnFtb);
+		RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
+		rd.forward(request, response);
+	}
 }

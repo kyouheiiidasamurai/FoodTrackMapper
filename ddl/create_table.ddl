@@ -10,8 +10,8 @@ CREATE TABLE tb_user (
   , birth_date int(8)    -- 生年月日
   , gender int(1)    -- 性別
   , blood_type int(1)    -- 血液型
-  , job varchar(200)    -- 職業
-  , post_code int(7)    -- 郵便番号
+  , job int(2)    -- 職業
+  , post _code int(7)    -- 郵便番号
   , prefectures int(2)    -- 都道府県
   , municipality varchar(200)    -- 市町村
   , address varchar(200)    -- 番地
@@ -31,11 +31,24 @@ CREATE TABLE tb_foodtrack (
   , access_info varchar(200) NOT NULL   -- 位置情報
   , user_no int(11) NOT NULL   -- 店舗主ユーザーNo
   , tel_no int(11) NOT NULL   -- 電話番号
-  , comment_text varchar(200)    -- コメント
+  , comment varchar(200)    -- コメント
   , image varchar(200)    -- 写真
   , category varchar(200)    -- カテゴリ
   , point int(11)   DEFAULT 0   -- 評価数
   , registered_date datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP   -- 登録日時
   , update_date datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP   -- 更新日時
   , PRIMARY KEY (foodtrack_no)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+/* レビュー情報 */
+DROP TABLE IF EXISTS tb_review;
+CREATE TABLE tb_review (
+    review_no int(11) auto_increment NOT NULL   -- No
+  , review_title varchar(200)    -- タイトル
+  , review_content varchar(200)    -- 内容
+  , review_user int(11)    -- 投稿者
+  , foodtrack_no int(11) NOT NULL   -- フードトラックNo
+  , point int(1)   DEFAULT 0   -- 評価数
+  , registered_date datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP   -- 登録日時
+  , update_date datetime NOT NULL  DEFAULT CURRENT_TIMESTAMP   -- 更新日時
+  , PRIMARY KEY (review_no)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;

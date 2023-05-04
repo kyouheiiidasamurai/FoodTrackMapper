@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="beans.FoodTrackBeans"%>
-<%@ page import="java.util.List"%>
-<%
-request.setCharacterEncoding("UTF8");
-List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("returnFtbList");
-%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -40,15 +34,16 @@ List<FoodTrackBeans> ftbList = (List<FoodTrackBeans>) request.getAttribute("retu
 									<td><c:out value="${ftb.station}" /></td>
 									<td><c:out value="${ftb.point}" /></td>
 									<td>
-										<form method="post" name="shopdetail" action="<%=request.getContextPath()%>/RouteRegister">
-											<input type="hidden" name="route" value="4">
-											<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrac_no}" />">
+										<form method="post" name="shopdetail" action="<%=request.getContextPath()%>/RouteDetail">
+											<input type="hidden" name="detailFlg" value="2">
+											<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrack_no}" />">
 											<a href="javascript:shopdetail.submit()">詳細</a>
 										</form>
 									</td>
 								</tr>
 							 </c:forEach>
 					</table>
+					<a href="#">他を調べる</a>
 				</div>
 			</section>
 		</main>

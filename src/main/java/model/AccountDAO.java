@@ -71,7 +71,7 @@ public class AccountDAO {
 
 			String sql = "SELECT user_no, user_id, user_name, mail_address, password, type, birth_date, gender,"
 					+ " blood_type, job, post_code, prefectures, municipality, address, building_name, registered_date,"
-					+ " update_date FROM tb_user " + "WHERE user_no = ?";
+					+ " update_date FROM tb_user WHERE user_no = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setInt(1, user_no);

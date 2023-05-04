@@ -74,7 +74,7 @@ public class FoodTrackDAO {
 			ps.setInt(1, intUserNo);
 
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				// 見つかった情報を戻り値にセット
 				returnFtb.setFoodtrack_no(rs.getInt("foodtrack_no"));
 				returnFtb.setFoodtrack_id(rs.getString("foodtrack_id"));
@@ -89,9 +89,6 @@ public class FoodTrackDAO {
 				returnFtb.setCategory(rs.getString("category"));
 				returnFtb.setPoint(rs.getInt("point"));
 				returnFtbList.add(returnFtb);
-			} else {
-				// アカウントがなければnullを返す
-				return null;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -137,4 +134,28 @@ public class FoodTrackDAO {
 		return returnFtbList;
 	}
 
+	// FoodTrackInfoを探す
+	public void updatePoint(int intFoodtrackNo, int intPoint) {
+
+		// データベースへ接続
+		try (Connection con = DriverManager.getConnection(DBConf.JDBCURL, DBConf.JDBCID, DBConf.JDBCPASS)) {
+
+			String sql = "UPDATE tb_foodtrack SET point = ?, update_date = CURRENT_TIMESTAMP WHERE foodtrack_no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, intPoint);
+			ps.setInt(2, intFoodtrackNo);
+
+			int r = ps.executeUpdate();
+
+			if (r != 0) {
+				System.out.println("新規登録成功！");
+			} else {
+				System.out.println("新規登録失敗");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -70,7 +70,7 @@ public class RouteDetail extends HttpServlet {
 				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 				request.setAttribute("FoodTrackDetail", returnFtb);
 			} else {
-				request.setAttribute("route", 3);
+				request.setAttribute("route", 4);
 				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 				request.setAttribute("FoodTrackDetail", returnFtbList);
 			}

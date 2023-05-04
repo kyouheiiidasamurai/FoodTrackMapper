@@ -21,6 +21,8 @@ int intRoute = (int) request.getAttribute("route");
 			<jsp:include page="detail/owner.jsp" flush="true" />
 			<% } else if (intRoute == 3) { %>
 			<jsp:include page="detail/foodtrack.jsp" flush="true" />
+			<% } else if (intRoute == 4) { %>
+			<jsp:include page="detail/foodtrackowner.jsp" flush="true" />
 			<% } %>
 		</main>
 		<jsp:include page="parts/footer.jsp" flush="true" />
