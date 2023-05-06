@@ -4,7 +4,7 @@
 <div class="register">
 	<div>
 		評価点：<select name="point" id="point">
-		    <option value="0" selected>選択してください</option>
+		    <option value="0" selected>点数を選択してください</option>
 		    <option value="1">1</option>
 		    <option value="2">2</option>
 		    <option value="3">3</option>
