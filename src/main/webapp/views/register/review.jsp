@@ -13,7 +13,7 @@
 		</select>
 	</div>
 	<div>タイトル：<input type="text" name="review_title"></div>
-	<div>内容<textarea rows="10" cols="60" name="review_content"></textarea></div>
+	<div>内容：<textarea rows="10" cols="60" name="review_content"></textarea></div>
 </div>
 <input type="hidden" name="foodtrack_no" value="<c:out value="${FoodTrackDetail.foodtrack_no}" />">
 
