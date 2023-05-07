@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import Utility.CommonUtility;
 import beans.AccountBeans;
 import beans.FoodTrackBeans;
+import beans.ReviewBeans;
 import model.FoodTrackDAO;
+import model.ReviewDAO;
 
 /**
  * Servlet implementation class AccountRegister
@@ -53,27 +55,48 @@ public class RouteDetail extends HttpServlet {
 		AccountBeans sessionAb = new AccountBeans();
 		FoodTrackDAO ftb = new FoodTrackDAO();
 		FoodTrackBeans returnFtb = new FoodTrackBeans();
+		ReviewDAO rdao = new ReviewDAO();
+		List<ReviewBeans> rblist = new ArrayList<>();
 		List<FoodTrackBeans> returnFtbList = new ArrayList<>();
 		if (session != null && session.getAttribute("account") != null) {
 			sessionAb = (AccountBeans) session.getAttribute("account");
 			returnFtbList = ftb.findFoodTrackByUser(sessionAb.getUser_no());
 			request.setAttribute("FoodTrackDetail", returnFtb);
-			if ("1".equals(request.getParameter("detailFlg"))) {
+			int detailFlg = cUtility.checkInt(request.getParameter("detailFlg"));
+			switch (detailFlg) {
+			case 1:
 				if (sessionAb.getType() == 1) {
 					returnFtbList = ftb.findFoodTrackByUser(sessionAb.getUser_no());
 					request.setAttribute("returnFtbList", returnFtbList);
 				}
 				request.setAttribute("AccountDetail", sessionAb);
 				request.setAttribute("route", sessionAb.getType());
-			} else if ("2".equals(request.getParameter("detailFlg"))) {
+				break;
+			case 2:
 				request.setAttribute("route", 3);
 				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 				request.setAttribute("FoodTrackDetail", returnFtb);
-			} else {
+				break;
+			case 3:
 				request.setAttribute("route", 4);
 				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
 				request.setAttribute("FoodTrackDetail", returnFtbList);
+				break;
+			case 4:
+				request.setAttribute("route", 5);
+				rblist = rdao.findReviewByFoodtrackNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+				request.setAttribute("foodtrack_no", cUtility.checkInt(request.getParameter("foodtrack_no")));
+				request.setAttribute("ReviewList", rblist);
+				break;
+			case 5:
+				request.setAttribute("route", 6);
+				returnFtb = ftb.findFoodTrackByNo(cUtility.checkInt(request.getParameter("foodtrack_no")));
+				request.setAttribute("FoodTrackDetail", returnFtb);
+				break;
+			default:
+				break;
 			}
+
 			RequestDispatcher rd = request.getRequestDispatcher("views/display.jsp");
 			rd.forward(request, response);
 		} else {

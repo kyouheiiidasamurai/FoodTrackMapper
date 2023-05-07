@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="beans.FoodTrackBeans"%>
-<%
-	FoodTrackBeans ftb = (FoodTrackBeans) request.getAttribute("FoodTrackDetail");
-%>
 <main>
 	<section>
 		<h2 class="flag">
@@ -32,10 +28,9 @@
 			<input type="hidden" name="detailFlg" value="4">
 			<input type="submit" value="レビュー表示">
 		</form>
-		<form class="c" action="<%=request.getContextPath()%>/RouteRegister" method="post">
-			<input type="hidden" name="foodtrack_no" value="<c:out value="${FoodTrackDetail.foodtrack_no}" />">
-			<input type="hidden" name="route" value="5">
-			<input type="submit" value="レビュー">
-		</form>
+			<form method="post" name="foodtracklist" action="<%=request.getContextPath()%>/RouteDetail">
+				<input type="hidden" name="detailFlg" value="3">
+			    <a href="javascript:foodtracklist.submit()" class="foodtrack">フードトラック一覧</a>
+			</form>
 	</section>
 </main>

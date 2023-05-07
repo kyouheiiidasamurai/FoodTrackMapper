@@ -76,6 +76,7 @@ public class FoodTrackDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// 見つかった情報を戻り値にセット
+				returnFtb = new FoodTrackBeans();
 				returnFtb.setFoodtrack_no(rs.getInt("foodtrack_no"));
 				returnFtb.setFoodtrack_id(rs.getString("foodtrack_id"));
 				returnFtb.setFoodtrack_name(rs.getString("foodtrack_name"));
@@ -113,6 +114,7 @@ public class FoodTrackDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				// 見つかった情報を戻り値にセット
+				returnFtb = new FoodTrackBeans();
 				returnFtb.setFoodtrack_no(rs.getInt("foodtrack_no"));
 				returnFtb.setFoodtrack_id(rs.getString("foodtrack_id"));
 				returnFtb.setFoodtrack_name(rs.getString("foodtrack_name"));

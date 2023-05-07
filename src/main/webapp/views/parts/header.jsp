@@ -26,13 +26,11 @@
 		    <a href="javascript:logout.submit()" class="logout">ログアウト</a>
 		</form>
 		<form method="post" name="user" action="<%=request.getContextPath()%>/RouteDetail">
-			<input type="hidden" name="user_no" value="<%=intUserNo%>">
 			<input type="hidden" name="detailFlg" value="1">
 		    <a href="javascript:user.submit()" class="userpage">ユーザーページ</a>
 		</form>
 		<% if(intType == 1) { %>
 			<form method="post" name="foodtrack" action="<%=request.getContextPath()%>/RouteDetail">
-				<input type="hidden" name="user_no" value="<%=intUserNo%>">
 				<input type="hidden" name="detailFlg" value="3">
 			    <a href="javascript:foodtrack.submit()" class="foodtrack">フードトラック一覧</a>
 			</form>

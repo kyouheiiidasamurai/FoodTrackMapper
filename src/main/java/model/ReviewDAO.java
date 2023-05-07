@@ -30,8 +30,9 @@ public class ReviewDAO {
 			ps.setInt(1, intFoodtrackNo);
 
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				// 見つかった情報を戻り値にセット
+				returnRb = new ReviewBeans();
 				returnRb.setReview_no(rs.getInt("review_no"));
 				returnRb.setReview_title(rs.getString("review_title"));
 				returnRb.setReview_content(rs.getString("review_content"));
@@ -39,9 +40,6 @@ public class ReviewDAO {
 				returnRb.setFoodtrack_no(rs.getInt("foodtrack_no"));
 				returnRb.setPoint(rs.getInt("point"));
 				returnRbList.add(returnRb);
-			} else {
-				// アカウントがなければnullを返す
-				return null;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,8 +65,9 @@ public class ReviewDAO {
 			ps.setInt(1, intUserNo);
 
 			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				// 見つかった情報を戻り値にセット
+				returnRb = new ReviewBeans();
 				returnRb.setReview_no(rs.getInt("review_no"));
 				returnRb.setReview_title(rs.getString("review_title"));
 				returnRb.setReview_content(rs.getString("review_content"));
@@ -76,9 +75,6 @@ public class ReviewDAO {
 				returnRb.setFoodtrack_no(rs.getInt("foodtrack_no"));
 				returnRb.setPoint(rs.getInt("point"));
 				returnRbList.add(returnRb);
-			} else {
-				// アカウントがなければnullを返す
-				return null;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -18,7 +18,13 @@
 					<tr>
 						<td><c:out value="${status.count}" /></td>
 						<td><c:out value="${ftb.foodtrack_name}" /></td>
-						<td><a href="#">詳細</a></td>
+						<td>
+							<form method="post" name="oneft" action="<%=request.getContextPath()%>/RouteDetail">
+								<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrack_no}" />">
+								<input type="hidden" name="detailFlg" value="5">
+								<a href="javascript:oneft.submit()">詳細</a>
+							</form>
+						</td>
 						<td>
 							<form method="post" name="shopinfoform" action="<%=request.getContextPath()%>/RouteRegister">
 								<input type="hidden" name="foodtrack_no" value="<c:out value="${ftb.foodtrack_no}" />">
@@ -30,10 +36,9 @@
 				</c:forEach>
 			</table>
 		</div>
-		
 		<form action="<%=request.getContextPath()%>/RouteRegister" method="post">
-			<input type="hidden" name="route" value="4">
-			<input type="submit" value="フードトラック情報修正">
+			<input type="hidden" name="route" value="3">
+			<input type="submit" value="フードトラック情報新規登録">
 		</form>
 	</section>
 </main>
