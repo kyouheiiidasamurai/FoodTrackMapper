@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.AccountBeans;
+import beans.FoodTrackBeans;
 import model.AccountDAO;
+import model.FoodTrackDAO;
 
 /**
  * Servlet implementation class accountCheck
@@ -62,7 +65,9 @@ public class AccountSearch extends HttpServlet {
 			// セッションにアカウント情報＆ロールを登録
 			HttpSession session = request.getSession();
 			session.setAttribute("account", returnAb);
-
+			FoodTrackDAO ftd = new FoodTrackDAO();
+			List<FoodTrackBeans> returnFtbList = ftd.findFoodTrackList();
+			session.setAttribute("returnFtbList", returnFtbList);
 			RequestDispatcher rd = request.getRequestDispatcher("views/info.jsp");
 			rd.forward(request, response);
 
